@@ -20,7 +20,7 @@ public class Order {
     private long id;
     private String paymentMethod;
     private boolean isDelivered;
-    private LocalDate deliveredAt;
+    private LocalDate createdAt;
     @ManyToOne
     @JoinColumn
     private User user;
@@ -29,4 +29,7 @@ public class Order {
     private List<Item> orderItems;
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PaymentResult paymentResult;
+    private double taxPrice;
+    private double shippingPrice;
+    private double totalPrice;
 }

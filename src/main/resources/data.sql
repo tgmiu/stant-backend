@@ -18,6 +18,10 @@
 -- INSERT INTO users_roles (user_id, roles_id)
 -- VALUES (3, 2);
 
-
+insert into users  (email,name,role, address,city,country,postal_code) values('john@example.com','John Doe','USER','1000 N 4th','Fairfield','USA','111');
 insert into product ( brand, category, count_in_stock, description, image, name, num_reviews, price, rating)
 values ('Apple','Electronics',5,'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life','/images/phone.jpg','Airpods Wireless Bluetooth Headphones',5,455,3.5);
+
+insert into orders (created_at, is_delivered,shipping_price,tax_price, total_price, payment_method, user_id) VALUES (now(), true, 10,1.5,11.5,'PayPal', 1);
+
+insert into item( image, name, price, qty, order_id) VALUES ('/images/airpods.jpg','Airpods Wireless Bluetooth Headphones',586,2,1);

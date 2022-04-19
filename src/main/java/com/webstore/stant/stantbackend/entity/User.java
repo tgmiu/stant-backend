@@ -18,8 +18,11 @@ public class User {
     private long id;
     private String name;
     private String email;
+    private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Embedded
+    private ShippingAddress shippingAddress;
 
 
 }
