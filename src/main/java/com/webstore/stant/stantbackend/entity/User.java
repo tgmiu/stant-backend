@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,8 +20,14 @@ public class User {
     private String name;
     private String email;
     private String password;
-    @Enumerated(EnumType.STRING)
-    private Role role;
+
+
+    private boolean isActive;
+    //    @Enumerated(EnumType.STRING)
+//    private Role role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable
+    private List<Role> roles;
     @Embedded
     private ShippingAddress shippingAddress;
 

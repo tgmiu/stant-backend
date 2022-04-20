@@ -20,6 +20,7 @@ public class Order {
     private long id;
     private String paymentMethod;
     private boolean isDelivered;
+    private boolean isPaid;
     private LocalDate createdAt;
     @ManyToOne
     @JoinColumn

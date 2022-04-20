@@ -1,27 +1,17 @@
--- INSERT INTO users (id, email, firstname, lastname, password)
--- VALUES (1, 'uinan@miu.edu', 'umur', 'inan', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2'); --123
--- INSERT INTO users (id, email, firstname, lastname, password)
--- VALUES (2, 'john@miu.edu', 'john', 'doe', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2'); --123
--- INSERT INTO users (id, email, firstname, lastname, password)
--- VALUES (3, 'dean@miu.edu', 'Dean', 'Altarawneh', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2'); --123
-
--- INSERT INTO role (id, role)
--- VALUES (1, 'ADMIN');
--- INSERT INTO role (id, role)
--- VALUES (2, 'CLIENT');
-
-
--- INSERT INTO users_roles (user_id, roles_id)
--- VALUES (1, 1);
--- INSERT INTO users_roles (user_id, roles_id)
--- VALUES (2, 2);
--- INSERT INTO users_roles (user_id, roles_id)
--- VALUES (3, 2);
-
-insert into users  (email,name,role, address,city,country,postal_code) values('john@example.com','John Doe','USER','1000 N 4th','Fairfield','USA','111');
+insert into public.role ( role) values ('ADMIN');
+insert into public.role ( role) values ('BUYER');
+insert into public.role ( role)values ('SELLER');
+insert into users  (email,name, address,city,country,postal_code,is_active) values('john@example.com','John Doe','1000 N 4th','Fairfield','USA','111',true);
+insert into users_roles values(1,1);
 insert into product ( brand, category, count_in_stock, description, image, name, num_reviews, price, rating)
 values ('Apple','Electronics',5,'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life','/images/phone.jpg','Airpods Wireless Bluetooth Headphones',5,455,3.5);
 
-insert into orders (created_at, is_delivered,shipping_price,tax_price, total_price, payment_method, user_id) VALUES (now(), true, 10,1.5,11.5,'PayPal', 1);
+insert into product ( brand, category, count_in_stock, description, image, name, num_reviews, price, rating)
+values ('Apple','Electronics',5,'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life','/images/phone.jpg','Airpods Wireless Bluetooth Headphones',5,455,3.5);
+
+insert into orders (created_at, is_paid, is_delivered,shipping_price,tax_price, total_price, payment_method, user_id) VALUES (now(), true, true, 10,1.5,11.5,'PayPal', 1);
 
 insert into item( image, name, price, qty, order_id) VALUES ('/images/airpods.jpg','Airpods Wireless Bluetooth Headphones',586,2,1);
+
+insert into review ( comment, is_approved, rating, user_id, product_id, created_at)
+values ('Very good product', true, 4,1,1, now());

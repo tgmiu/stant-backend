@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,7 +16,7 @@ import javax.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long _id; // todo fix me
+    private long id;
     private String name;
     private String image;
     private String description;
@@ -26,7 +24,10 @@ public class Product {
     private String category;
     private double price;
     private int countInStock;
-    private double rating;
+    private double rating; //todo fix me
     private int numReviews;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private List<Review> reviews;
 
 }
