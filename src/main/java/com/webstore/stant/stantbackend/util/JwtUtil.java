@@ -16,9 +16,6 @@ public class JwtUtil {
     //     private final long expiration = 5;
     private final long refreshExpiration = 5 * 60 * 60 * 60 * 60;
 
-    // this wil extract a claim from a token, its used in the methods above to get the username and date
-    // TODO When this detects the access token is expired it will throw and exception.
-    //  handle the exception and do not return null
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = getAllClaimsFromToken(token);
         return claimsResolver.apply(claims);

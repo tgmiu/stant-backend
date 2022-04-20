@@ -1,5 +1,6 @@
 package com.webstore.stant.stantbackend.service;
 
+import com.webstore.stant.stantbackend.dto.OrderDto;
 import com.webstore.stant.stantbackend.entity.Order;
 import com.webstore.stant.stantbackend.entity.Product;
 
@@ -10,6 +11,6 @@ public interface OrderService {
 
     Order getById(long id);
 
-    void save(Order order);
+    void save(OrderDto order);
     void delete(long id);
 }

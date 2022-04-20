@@ -30,7 +30,10 @@ public class Order {
     private List<Item> orderItems;
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PaymentResult paymentResult;
+    private double itemsPrice;
     private double taxPrice;
     private double shippingPrice;
     private double totalPrice;
+    @Embedded
+    private ShippingAddress shippingAddress;
 }

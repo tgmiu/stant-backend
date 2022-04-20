@@ -1,5 +1,6 @@
 package com.webstore.stant.stantbackend.v1.controller;
 
+import com.webstore.stant.stantbackend.dto.OrderDto;
 import com.webstore.stant.stantbackend.entity.Order;
 import com.webstore.stant.stantbackend.entity.Product;
 import com.webstore.stant.stantbackend.service.OrderService;
@@ -32,7 +33,7 @@ public class OrderController {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
-    public void save(@RequestBody Order order) {
+    public void save(@RequestBody OrderDto order) {
         orderService.save(order);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)

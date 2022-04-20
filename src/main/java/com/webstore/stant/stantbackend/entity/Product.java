@@ -24,7 +24,6 @@ public class Product {
     private String category;
     private double price;
     private int countInStock;
-    private double rating; //todo fix me
     private int numReviews;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
